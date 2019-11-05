@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.test.customview.MultiStateView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/multistateview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:msv_animateViewChanges="true"
+    app:msv_emptyView="@layout/empty_view"
+    app:msv_errorView="@layout/error_view"
+    app:msv_loadingView="@layout/loading_view"
+    app:msv_viewState="content"
+    tools:context=".TestFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/snackbar_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="snackbar_action" />
+
+        <Button
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Test" />
+
+
+        <Button
+            android:id="@+id/test1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="OnRetry" />
+
+
+    </LinearLayout>
+
+</com.test.customview.MultiStateView>
