@@ -66,14 +66,6 @@ public abstract class BaseMultiStateFragment extends BaseFragment implements Bas
 
     }
 
-
-    @Override
-    public void showProgressBar(LiveData<Boolean> liveData) {
-
-        if (baseActivity != null) baseActivity.showProgressBar(liveData);
-        else showActivityError();
-    }
-
     @Override
     public void setViewState(final LiveData<MultiStateViewShow> viewState, final MultiStateView multiStateView, final OnRetryCallback onRetryCallback) {
 

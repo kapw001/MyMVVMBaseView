@@ -1,9 +1,10 @@
 package com.test.base;
 
+import android.arch.lifecycle.LiveData;
 import android.support.annotation.StringRes;
 import android.view.View;
 
-public interface BaseView {
+public interface BaseView  {
 
     void showToast(String msg);
 
@@ -28,5 +29,9 @@ public interface BaseView {
     void showLogError(String msg);
 
     void showLogError(@StringRes int id);
+
+    void showProgressBar(LiveData<Boolean> liveData);
+
+    void showMessage(View view, LiveData<String> liveData);
 
 }

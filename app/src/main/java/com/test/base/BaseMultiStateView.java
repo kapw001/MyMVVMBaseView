@@ -1,10 +1,8 @@
 package com.test.base;
 
 import android.arch.lifecycle.LiveData;
-
 import com.test.customview.MultiStateView;
 
-import java.util.List;
 
 public interface BaseMultiStateView {
 
@@ -18,9 +16,6 @@ public interface BaseMultiStateView {
 
     void showEmptyMsg(MultiStateView view, String msg);
 
-    void showProgressBar(LiveData<Boolean> liveData);
-
     void setViewState(LiveData<MultiStateViewShow> viewState, MultiStateView multiStateView, OnRetryCallback onRetryCallback);
-
 
 }

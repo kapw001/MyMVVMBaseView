@@ -1,5 +1,6 @@
 package com.test.base;
 
+import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -122,6 +123,45 @@ public abstract class BaseFragment extends Fragment implements BaseView {
 
     }
 
+
+    @Override
+    public void showProgressBar(LiveData<Boolean> liveData) {
+
+        if (baseActivity != null) baseActivity.showProgressBar(liveData);
+        else showActivityError();
+    }
+
+    @Override
+    public void showMessage(View view, LiveData<String> liveData) {
+
+        if (baseActivity != null) baseActivity.showMessage(view, liveData);
+        else showActivityError();
+
+    }
+
+//    @Override
+//    public void showNoInternet(boolean isMultiStateViewEnabled) {
+//
+//        if (baseActivity != null) baseActivity.showNoInternet(isMultiStateViewEnabled);
+//        else showActivityError();
+//
+//    }
+//
+//    @Override
+//    public void showTimeOut(boolean isMultiStateViewEnabled) {
+//
+//        if (baseActivity != null) baseActivity.showTimeOut(isMultiStateViewEnabled);
+//        else showActivityError();
+//
+//    }
+//
+//    @Override
+//    public void showNetworkError(String s, boolean isMultiStateViewEnabled) {
+//
+//        if (baseActivity != null) baseActivity.showNetworkError(s, isMultiStateViewEnabled);
+//        else showActivityError();
+//
+//    }
 
     private void showActivityError() {
 

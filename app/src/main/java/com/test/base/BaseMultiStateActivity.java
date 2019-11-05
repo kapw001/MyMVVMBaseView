@@ -96,20 +96,6 @@ public abstract class BaseMultiStateActivity extends BaseActivity implements Bas
 
 
     @Override
-    public void showProgressBar(LiveData<Boolean> liveData) {
-
-        liveData.observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(@Nullable Boolean aBoolean) {
-
-                if (aBoolean != null && aBoolean) showProgressBar();
-                else hideProgressBar();
-            }
-        });
-
-    }
-
-    @Override
     public void setViewState(final LiveData<MultiStateViewShow> viewState, final MultiStateView multiStateView, final OnRetryCallback onRetryCallback) {
 
         viewState.observe(this, new Observer<MultiStateViewShow>() {

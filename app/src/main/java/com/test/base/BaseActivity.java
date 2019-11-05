@@ -1,6 +1,9 @@
 package com.test.base;
 
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -64,7 +67,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     @Override
     public void showProgressBar() {
 
-        showProgressBar(null);
+        showProgressBar("");
 
     }
 
@@ -104,5 +107,51 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     }
 
+    @Override
+    public void showProgressBar(LiveData<Boolean> liveData) {
 
+        liveData.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean aBoolean) {
+
+                if (aBoolean != null && aBoolean) showProgressBar();
+                else hideProgressBar();
+            }
+        });
+
+    }
+
+    @Override
+    public void showMessage(final View view, LiveData<String> liveData) {
+
+        liveData.observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+
+                showSnackBar(view, s);
+            }
+        });
+
+    }
+
+//    @Override
+//    public void showNoInternet(boolean isMultiStateViewEnabled) {
+//
+//        showToast("No internet connection");
+//
+//    }
+//
+//    @Override
+//    public void showNetworkError(String s, boolean isMultiStateViewEnabled) {
+//
+//        showToast(s);
+//
+//    }
+//
+//    @Override
+//    public void showTimeOut(boolean isMultiStateViewEnabled) {
+//
+//        showToast("Time Out");
+//
+//    }
 }
